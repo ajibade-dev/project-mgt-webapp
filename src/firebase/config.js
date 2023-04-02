@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import {getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query, where, orderBy, deleteDoc, doc, setDoc, updateDoc} from 'firebase/firestore'
+import {getFirestore, collection, addDoc, onSnapshot, query, where, orderBy, deleteDoc, doc, setDoc, updateDoc, Timestamp} from 'firebase/firestore'
 import {getAuth, createUserWithEmailAndPassword, updateProfile, signOut, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth'
 
 import {getStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable} from 'firebase/storage'
@@ -23,7 +23,7 @@ const firebaseConfig = {
   const projectStorage = getStorage()
 
   //init timestamp
-  const timestamp = serverTimestamp();
+  const timestamp = Timestamp.now();
 
   //exporting
   export { db, auth, createUserWithEmailAndPassword, updateProfile, signOut, signInWithEmailAndPassword, onAuthStateChanged, collection, addDoc, timestamp, onSnapshot, query, where, orderBy, deleteDoc, doc, projectStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable, setDoc, updateDoc }
