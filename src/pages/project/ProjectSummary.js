@@ -3,17 +3,17 @@ import './Project.css'
 import Avatar from "../../components/Avatar"
 import { useFirestore } from "../../hooks/useFirestore"
 import { useAuthContext} from "../../hooks/useAuthContext"
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function ProjectSummary({project}) {
     const { deleteDocument } = useFirestore('projects')
     const {user} = useAuthContext()
-    const history = useHistory()
+    const navigate = useNavigate()
     const handleClick = (e) => {
         e.preventDefault()
         deleteDocument(project.id)
-        history.push('/')
+        navigate('/')
 
     }
 
